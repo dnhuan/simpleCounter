@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <title>Máy rửa tay</title>
+</head>
+<body>
+    <div id="counter"><%= count %></div>
+    <script>
+        var socket = io();
+        socket.on('count', data => {
+            document.getElementById("counter").innerHTML = data; 
+        })
+    </script>
+</body>
+</html>

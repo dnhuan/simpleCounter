@@ -29,7 +29,7 @@ app.all('/update', (req,res)=>{
     let count = parseInt(db.get('count').value()) + 1
     db.set('count', count).write();
     io.emit('count', count);
-    res.sendStatus(count);
+    res.sendStatus(count.toString());
 });
 
 app.all('/reset', (req,res)=>{

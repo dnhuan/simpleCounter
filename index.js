@@ -27,8 +27,7 @@ app.get('/count', (req,res)=>{
 });
 
 app.all('/update', (req,res)=>{
-    let data = parseInt(req.query.d)
-    console.log(data)
+    let data = parseInt(req.body.d)
     let count = parseInt(db.get('count').value()) + data
     db.set('count', count).write();
     io.emit('count', count);

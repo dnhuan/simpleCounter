@@ -13,7 +13,8 @@ const db = low(adapter)
 db.defaults({ count: 0 }).write()
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set('view engine', 'ejs');
 
@@ -26,7 +27,9 @@ app.get('/count', (req,res)=>{
 });
 
 app.all('/update', (req,res)=>{
-    let count = parseInt(db.get('count').value()) + 1
+    let data = parseInt(req.query.d)
+    console.log(data)
+    let count = parseInt(db.get('count').value()) + data
     db.set('count', count).write();
     io.emit('count', count);
     res.send(count.toString());

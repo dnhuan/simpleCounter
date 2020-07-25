@@ -5,9 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
     <title>Máy rửa tay</title>
+    <style>
+        body {
+            position: relative;
+            text-align: center;
+            min-height: 95vh;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        img {
+            padding-top: 10px;
+            width: 150px;
+            height: auto;
+        }
+
+        #school {
+            color: #384E46;
+            padding-top: 10px;
+        }
+
+        h1 {
+            color: #1B6049;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            font-size: 150%;
+        }
+
+        #counter {
+            color: #31E1A6;
+            font-size: 800%;
+        }
+
+        #counter-footer {
+            color: #45C69B;
+            font-size: 200%;
+        }
+
+        footer {
+            color: #064530;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            font-size: 80%;
+            line-height: 1.3rem;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div id="logo">
+            <a href="https://trandainghia.edu.vn/" target="_blank"><img src="logotdn.jpg" alt="Logo THPT Chuyen Tran Dai Nghia"></a>
+        </div>
+        <div id="school">Trường THPT Chuyên Trần Đại Nghĩa</div>
+    </header>
+    <h1>HỆ THỐNG QUẢN LÝ</br>MÁY RỬA TAY TỰ ĐỘNG</h1>
     <div id="counter"><%= count %></div>
+    <div id="counter-footer">Lượt sử dụng</div>
+    <footer>
+        <div id="credit">
+            <span>Sản phẩm của: Thái Phương Quỳnh - Lớp 11A2</span>
+            </br>
+            <span>Giáo viên hướng dẫn: Thầy Nguyễn Lê Hoàng Sơn</span>
+        </div>
+    </footer>
     <script>
         var socket = io();
         socket.on('count', data => {
